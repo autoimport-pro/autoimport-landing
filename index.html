@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АвтоИмпорт Про - Авто с пробегом из-за границы</title>
+    <title>АвтоИмпорт АЗИЯ - Автомобили с пробегом из-за границы</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,8 +12,8 @@
             --primary-color: #0f1a2e;
             --secondary-color: #d4a13e;
             --text-color: #ffffff;
-            --light-gray: #f0f0f0;
-            --dark-gray: #333;
+            --bg-light: #1a2b47;
+            --bg-dark: #0f1a2e;
         }
 
         * {
@@ -22,16 +22,12 @@
             padding: 0;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--primary-color);
-            overflow-x: hidden;
+            background-color: var(--bg-dark);
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -42,8 +38,8 @@
 
         header {
             background-color: var(--primary-color);
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--secondary-color);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -61,12 +57,15 @@
             font-weight: 700;
             color: var(--secondary-color);
             text-decoration: none;
+            flex-shrink: 0;
+            margin-right: 20px;
         }
 
         .contact-info {
             display: flex;
             align-items: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .contact-info a {
@@ -81,45 +80,31 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(15, 26, 46, 0.8), rgba(15, 26, 46, 0.8)), url('https://picsum.photos/seed/carhero/1920/1080') no-repeat center center/cover;
-            min-height: 80vh;
+            background: linear-gradient(rgba(15, 26, 46, 0.7), rgba(15, 26, 46, 0.9)), url('https://picsum.photos/1920/1080?random=car') no-repeat center center/cover;
+            padding: 100px 0;
+            text-align: center;
+            min-height: 60vh;
             display: flex;
             align-items: center;
-            text-align: center;
-            position: relative;
-            padding: 80px 0;
+            justify-content: center;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 2;
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease-out;
         }
 
         .hero h1 {
-            font-size: 4em;
+            font-size: 48px;
             margin-bottom: 20px;
-            color: var(--text-color);
-            font-weight: 700;
-            animation: fadeInDown 1s ease-out;
+            color: var(--secondary-color);
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.5em;
+            font-size: 20px;
             margin-bottom: 40px;
-            color: var(--light-gray);
-            animation: fadeInUp 1s ease-out 0.5s forwards;
-            opacity: 0;
+            color: #ccc;
         }
 
         .btn {
@@ -129,85 +114,85 @@
             padding: 15px 30px;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            animation: zoomIn 1s ease-out 1s forwards;
-            opacity: 0;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
         }
 
         .btn:hover {
-            background-color: #c08e35;
+            background-color: #e0b04e;
             transform: translateY(-3px);
         }
 
         section {
             padding: 80px 0;
-            text-align: center;
+            background-color: var(--bg-dark);
         }
 
         section:nth-of-type(even) {
-            background-color: #1a2b47;
+            background-color: var(--bg-light);
         }
 
         h2 {
-            font-size: 3em;
-            margin-bottom: 50px;
+            font-size: 38px;
+            text-align: center;
+            margin-bottom: 60px;
             color: var(--secondary-color);
-            font-weight: 700;
             position: relative;
-            display: inline-block;
+            padding-bottom: 15px;
         }
 
         h2::after {
             content: '';
             position: absolute;
             left: 50%;
-            bottom: -10px;
+            bottom: 0;
             transform: translateX(-50%);
             width: 80px;
-            height: 4px;
+            height: 3px;
             background-color: var(--secondary-color);
-            border-radius: 2px;
         }
 
-        .grid-3-cols, .grid-2-cols {
+        .features-grid, .countries-grid, .cars-grid, .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 50px;
         }
 
-        .card {
-            background-color: #1a2b47;
+        .feature-card, .country-card, .car-card, .review-card {
+            background-color: var(--primary-color);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .card h3 {
-            font-size: 1.8em;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .card h3 .icon {
-            font-size: 1.5em;
+        .feature-card:hover, .country-card:hover, .car-card:hover, .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
 
-        .card p {
-            color: var(--light-gray);
-            font-size: 1.1em;
+        .feature-card .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .feature-card h3, .country-card h3, .car-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .feature-card p, .country-card p {
+            font-size: 16px;
+            color: #ccc;
         }
 
         .how-it-works-steps {
@@ -219,203 +204,140 @@
         }
 
         .step {
-            background-color: #1a2b47;
+            background-color: var(--primary-color);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            width: 280px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 280px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             position: relative;
+            transition: transform 0.3s ease;
         }
 
-        .step .step-number {
+        .step:hover {
+            transform: translateY(-10px);
+        }
+
+        .step-number {
             background-color: var(--secondary-color);
             color: var(--primary-color);
             width: 50px;
             height: 50px;
             border-radius: 50%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 1.8em;
+            justify-content: center;
+            font-size: 24px;
             font-weight: 700;
             margin: -55px auto 20px;
-            border: 3px solid var(--primary-color);
+            border: 3px solid var(--bg-dark);
         }
 
         .step h3 {
-            font-size: 1.5em;
-            color: var(--text-color);
+            font-size: 22px;
             margin-bottom: 10px;
+            color: var(--secondary-color);
         }
 
         .step p {
-            color: var(--light-gray);
-        }
-
-        .country-card {
-            background-color: #1a2b47;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 16px;
+            color: #ccc;
         }
 
         .country-card .flag {
-            font-size: 3em;
+            font-size: 60px;
             margin-bottom: 15px;
         }
 
-        .country-card h3 {
-            font-size: 1.8em;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-
-        .country-card p {
-            color: var(--light-gray);
-            margin-bottom: 10px;
-        }
-
         .country-card .brands {
-            font-size: 0.9em;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .car-card {
-            background-color: #1a2b47;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 15px;
         }
 
         .car-card img {
-            width: 100%;
-            height: 240px;
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            height: 200px;
             object-fit: cover;
-            display: block;
-        }
-
-        .car-card-content {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .car-card h3 {
-            font-size: 1.8em;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
         }
 
         .car-card .price {
-            font-size: 1.6em;
+            font-size: 28px;
             font-weight: 700;
-            color: var(--text-color);
+            color: var(--secondary-color);
             margin-bottom: 15px;
         }
 
         .car-card ul {
             list-style: none;
-            padding: 0;
+            text-align: left;
             margin-bottom: 20px;
-            color: var(--light-gray);
+            color: #ccc;
         }
 
         .car-card ul li {
-            margin-bottom: 5px;
-            font-size: 1.1em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
         }
 
-        .car-card .btn {
-            width: 100%;
-            text-align: center;
-            margin-top: auto;
+        .car-card ul li::before {
+            content: '•';
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 1.2em;
         }
 
         .calculator {
-            background-color: #1a2b47;
+            background-color: var(--primary-color);
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             max-width: 600px;
-            margin: 50px auto 0;
-            text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .calculator h3 {
-            font-size: 2em;
+            font-size: 28px;
             color: var(--secondary-color);
-            margin-bottom: 25px;
             text-align: center;
+            margin-bottom: 30px;
         }
 
         .calculator label {
             display: block;
             margin-bottom: 10px;
-            color: var(--text-color);
             font-weight: 600;
+            color: #ccc;
         }
 
-        .calculator input[type="number"],
-        .calculator select {
+        .calculator input, .calculator select {
             width: 100%;
             padding: 12px;
             margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 5px;
-            background-color: var(--primary-color);
+            border: 1px solid #333;
+            background-color: #222;
             color: var(--text-color);
-            font-size: 1em;
-        }
-
-        .calculator input[type="number"]::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .calculator select option {
-            background-color: var(--primary-color);
-            color: var(--text-color);
+            font-size: 16px;
         }
 
         .calculator button {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 15px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
             width: 100%;
-        }
-
-        .calculator button:hover {
-            background-color: #c08e35;
-            transform: translateY(-2px);
+            margin-top: 20px;
         }
 
         .calculator #result {
-            margin-top: 25px;
-            font-size: 1.4em;
+            margin-top: 30px;
+            font-size: 22px;
             font-weight: 700;
-            color: var(--text-color);
             text-align: center;
+            color: var(--secondary-color);
         }
 
         .video-block {
-            background-color: var(--primary-color);
-            padding: 80px 0;
             text-align: center;
         }
 
@@ -425,9 +347,10 @@
             height: 0;
             overflow: hidden;
             max-width: 900px;
-            margin: 50px auto 0;
+            margin: 0 auto;
+            background-color: #000;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .video-wrapper iframe {
@@ -439,140 +362,114 @@
             border: 0;
         }
 
-        .testimonials-slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            gap: 30px;
-            padding-bottom: 20px;
-            margin-top: 50px;
-        }
-
-        .testimonial-card {
-            flex: 0 0 350px; /* Fixed width for cards */
-            scroll-snap-align: start;
-            background-color: #1a2b47;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .review-card {
             text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
-        .testimonial-card .rating {
-            color: var(--secondary-color);
-            font-size: 1.2em;
+        .review-card .user-info {
+            display: flex;
+            align-items: center;
             margin-bottom: 15px;
         }
 
-        .testimonial-card p {
-            color: var(--light-gray);
-            font-style: italic;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: auto;
-        }
-
-        .testimonial-author img {
+        .review-card .user-info img {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            object-fit: cover;
+            margin-right: 15px;
             border: 2px solid var(--secondary-color);
+            object-fit: cover;
         }
 
-        .testimonial-author span {
-            font-weight: 600;
-            color: var(--text-color);
-            font-size: 1.1em;
+        .review-card .user-info .name {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--secondary-color);
         }
 
-        .faq-accordion {
-            max-width: 800px;
-            margin: 50px auto 0;
+        .review-card .rating {
+            color: gold;
+            margin-bottom: 10px;
+            font-size: 20px;
         }
 
-        .accordion-item {
-            background-color: #1a2b47;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .review-card p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .faq-accordion .accordion-item {
+            background-color: var(--primary-color);
             margin-bottom: 15px;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .accordion-header {
+        .faq-accordion .accordion-header {
+            padding: 20px;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            cursor: pointer;
-            background-color: #1a2b47;
-            color: var(--text-color);
-            font-size: 1.2em;
             font-weight: 600;
+            font-size: 18px;
+            color: var(--secondary-color);
             transition: background-color 0.3s ease;
         }
 
-        .accordion-header:hover {
-            background-color: #2a3b57;
+        .faq-accordion .accordion-header:hover {
+            background-color: #1a2b47;
         }
 
-        .accordion-header .icon {
-            font-size: 1.5em;
+        .faq-accordion .accordion-header .icon {
+            font-size: 24px;
             transition: transform 0.3s ease;
         }
 
-        .accordion-item.active .accordion-header .icon {
-            transform: rotate(180deg);
-        }
-
-        .accordion-content {
+        .faq-accordion .accordion-body {
             padding: 0 20px;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-            color: var(--light-gray);
+            color: #ccc;
+            font-size: 16px;
         }
 
-        .accordion-item.active .accordion-content {
+        .faq-accordion .accordion-body p {
+            padding-bottom: 20px;
+        }
+
+        .faq-accordion .accordion-item.active .accordion-header .icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-accordion .accordion-item.active .accordion-body {
             max-height: 200px; /* Adjust as needed */
-            padding: 20px;
+            padding-top: 10px;
+            padding-bottom: 20px;
         }
 
         .contact-form {
-            background-color: #1a2b47;
+            background-color: var(--primary-color);
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             max-width: 600px;
-            margin: 50px auto 0;
-            text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .contact-form h3 {
-            font-size: 2em;
+            font-size: 28px;
             color: var(--secondary-color);
-            margin-bottom: 25px;
             text-align: center;
+            margin-bottom: 30px;
         }
 
         .contact-form label {
             display: block;
             margin-bottom: 10px;
-            color: var(--text-color);
             font-weight: 600;
+            color: #ccc;
         }
 
         .contact-form input[type="text"],
@@ -581,181 +478,117 @@
             width: 100%;
             padding: 12px;
             margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 5px;
-            background-color: var(--primary-color);
+            border: 1px solid #333;
+            background-color: #222;
             color: var(--text-color);
-            font-size: 1em;
-        }
-
-        .contact-form input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            font-size: 16px;
         }
 
         .contact-form button {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 15px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
             width: 100%;
-        }
-
-        .contact-form button:hover {
-            background-color: #c08e35;
-            transform: translateY(-2px);
+            margin-top: 20px;
         }
 
         footer {
             background-color: var(--primary-color);
-            color: var(--light-gray);
             padding: 40px 0;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--secondary-color);
         }
 
         footer .container {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 20px;
         }
 
         footer .logo {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        footer p {
-            margin: 5px 0;
+        footer .contact-details p {
+            margin-bottom: 10px;
+            color: #ccc;
         }
 
-        footer a {
+        footer .contact-details a {
             color: var(--secondary-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        footer a:hover {
-            color: var(--text-color);
+        footer .contact-details a:hover {
+            color: #e0b04e;
         }
 
         /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes zoomIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .animated {
+        .animate-on-scroll {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(50px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        .animated.visible {
+        .animate-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3em;
-            }
-            .hero p {
-                font-size: 1.2em;
-            }
-            h2 {
-                font-size: 2.5em;
-            }
-            .grid-3-cols {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-            .testimonial-card {
-                flex: 0 0 300px;
-            }
-        }
-
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-                gap: 15px;
+            .logo {
+                font-size: 24px;
             }
             .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .hero {
-                min-height: 60vh;
-                padding: 60px 0;
+                justify-content: center;
+                width: 100%;
+                margin-top: 15px;
             }
             .hero h1 {
-                font-size: 2.5em;
+                font-size: 36px;
             }
             .hero p {
-                font-size: 1em;
-            }
-            .btn {
-                padding: 12px 25px;
-                font-size: 0.9em;
-            }
-            section {
-                padding: 60px 0;
+                font-size: 18px;
             }
             h2 {
-                font-size: 2em;
+                font-size: 30px;
             }
-            .grid-3-cols, .grid-2-cols {
+            .features-grid, .countries-grid, .cars-grid, .reviews-grid {
                 grid-template-columns: 1fr;
             }
             .step {
                 width: 100%;
             }
-            .testimonial-card {
-                flex: 0 0 80%;
-                margin: 0 auto;
-            }
-            .testimonials-slider {
-                justify-content: flex-start;
+            .video-wrapper {
+                padding-bottom: 75%; /* 4:3 Aspect Ratio for smaller screens */
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2em;
+                font-size: 28px;
             }
             .hero p {
-                font-size: 0.9em;
+                font-size: 16px;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 16px;
             }
             h2 {
-                font-size: 1.8em;
+                font-size: 26px;
             }
-            .card, .step, .country-card, .car-card, .calculator, .contact-form, .accordion-item {
-                padding: 20px;
+            .feature-card h3, .country-card h3, .car-card h3 {
+                font-size: 20px;
             }
-            .card h3 {
-                font-size: 1.5em;
-            }
-            .step .step-number {
-                width: 40px;
-                height: 40px;
-                font-size: 1.5em;
-                margin-top: -45px;
-            }
-            .testimonial-card {
-                flex: 0 0 95%;
+            .calculator, .contact-form {
+                padding: 25px;
             }
         }
     </style>
@@ -763,7 +596,7 @@
 <body>
     <header>
         <div class="container">
-            <a href="#" class="logo">АвтоИмпорт Про</a>
+            <a href="#" class="logo">АвтоИмпорт АЗИЯ</a>
             <div class="contact-info">
                 <a href="tel:89170801111">8 (917) 080-11-11</a>
                 <a href="mailto:info@autoimport.ru">info@autoimport.ru</a>
@@ -773,40 +606,46 @@
 
     <main>
         <section class="hero">
-            <div class="container">
+            <div class="hero-content animate-on-scroll">
                 <h1>Автомобили с пробегом из-за границы</h1>
-                <p>Привозим авто из Германии, Японии, Кореи, Китая, США и ОАЭ с 2018 года. Более 2000 довольных клиентов.</p>
-                <a href="#contact-form" class="btn">Получить консультацию</a>
+                <p>Привозим авто из Германии, Японии, Кореи, Китая, США и ОАЭ. Надежно, выгодно, под ключ.</p>
+                <a href="#contact-form" class="btn">Получить расчет стоимости</a>
             </div>
         </section>
 
-        <section id="advantages">
+        <section id="why-us">
             <div class="container">
-                <h2 class="animated">Почему выбирают нас</h2>
-                <div class="grid-3-cols">
-                    <div class="card animated">
-                        <h3><span class="icon">🔍</span> Проверка 201 параметр</h3>
+                <h2>Почему выбирают нас?</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="icon">🔍</div>
+                        <h3>Проверка 201 параметр</h3>
                         <p>Диагностика перед покупкой, полный отчёт с фото и видео</p>
                     </div>
-                    <div class="card animated">
-                        <h3><span class="icon">⚖️</span> Юридическая гарантия</h3>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="icon">⚖️</div>
+                        <h3>Юридическая гарантия</h3>
                         <p>Чистые документы, растаможка, постановка на учёт</p>
                     </div>
-                    <div class="card animated">
-                        <h3><span class="icon">🌍</span> 6 стран поставок</h3>
-                        <p>Германия, Япония, Корея, Китай, США, ОАЭ</p>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="icon">🌍</div>
+                        <h3>Поставка из стран</h3>
+                        <p>Япония, Корея, Китай</p>
                     </div>
-                    <div class="card animated">
-                        <h3><span class="icon">📦</span> Доставка за 30–45 дней</h3>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="icon">📦</div>
+                        <h3>Доставка за 30–45 дней</h3>
                         <p>От подбора до вручения в вашем городе</p>
                     </div>
-                    <div class="card animated">
-                        <h3><span class="icon">💎</span> Премиум без переплат</h3>
-                        <p>BMW, Mercedes, Lexus, Porsche — выгодно</p>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="icon">💎</div>
+                        <h3>Премиум без переплат</h3>
+                        <p>BMW, Mercedes, Lexus, VW — выгодно</p>
                     </div>
-                    <div class="card animated">
-                        <h3><span class="icon">🤝</span> Trade‑in и кредит</h3>
-                        <p>Обмен авто, кредит от 3%</p>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="icon">🤝</div>
+                        <h3>Надежные партнеры в странах</h3>
+                        <p>Проверенные поставщики и логистические компании</p>
                     </div>
                 </div>
             </div>
@@ -814,32 +653,32 @@
 
         <section id="how-it-works">
             <div class="container">
-                <h2 class="animated">Как мы работаем</h2>
+                <h2>Как мы работаем</h2>
                 <div class="how-it-works-steps">
-                    <div class="step animated">
+                    <div class="step animate-on-scroll">
                         <div class="step-number">1</div>
                         <h3>Заявка и консультация</h3>
-                        <p>Оставляете заявку, наш менеджер связывается с вами, уточняет детали и подбирает варианты.</p>
+                        <p>Оставляете заявку, наш менеджер связывается с вами, уточняет требования и бюджет.</p>
                     </div>
-                    <div class="step animated">
+                    <div class="step animate-on-scroll">
                         <div class="step-number">2</div>
                         <h3>Подбор и проверка</h3>
-                        <p>Находим подходящие авто, проводим полную проверку по 201 параметру, предоставляем отчёт.</p>
+                        <p>Подбираем варианты, проводим полную проверку авто (201 параметр), предоставляем отчёт.</p>
                     </div>
-                    <div class="step animated">
+                    <div class="step animate-on-scroll">
                         <div class="step-number">3</div>
                         <h3>Заключение договора</h3>
-                        <p>Оформляем официальный договор, фиксируем стоимость и сроки доставки.</p>
+                        <p>Оформляем договор, фиксируем стоимость и сроки. Вы вносите предоплату.</p>
                     </div>
-                    <div class="step animated">
+                    <div class="step animate-on-scroll">
                         <div class="step-number">4</div>
                         <h3>Доставка и растаможка</h3>
-                        <p>Организуем логистику, страховку, таможенное оформление и доставку до вашего города.</p>
+                        <p>Организуем логистику, страховку и полное таможенное оформление.</p>
                     </div>
-                    <div class="step animated">
+                    <div class="step animate-on-scroll">
                         <div class="step-number">5</div>
-                        <h3>Вручение авто</h3>
-                        <p>Вы получаете полностью готовый к эксплуатации автомобиль с полным пакетом документов.</p>
+                        <h3>Получение авто</h3>
+                        <p>Вы получаете полностью готовый к эксплуатации автомобиль с документами.</p>
                     </div>
                 </div>
             </div>
@@ -847,43 +686,25 @@
 
         <section id="countries">
             <div class="container">
-                <h2 class="animated">Из каких стран привозим</h2>
-                <div class="grid-3-cols">
-                    <div class="country-card animated">
-                        <div class="flag">🇩🇪</div>
-                        <h3>Германия</h3>
-                        <p>Немецкое качество. Полная сервисная история.</p>
-                        <div class="brands">Бренды: BMW, Audi, Mercedes, Porsche, VW</div>
-                    </div>
-                    <div class="country-card animated">
+                <h2>Из каких стран привозим</h2>
+                <div class="countries-grid">
+                    <div class="country-card animate-on-scroll">
                         <div class="flag">🇯🇵</div>
                         <h3>Япония</h3>
                         <p>Аукционы, идеальное состояние.</p>
-                        <div class="brands">Бренды: Toyota, Lexus, Mazda, Subaru, Honda</div>
+                        <p class="brands">Бренды: Toyota, Lexus, Mazda, Subaru, Honda</p>
                     </div>
-                    <div class="country-card animated">
+                    <div class="country-card animate-on-scroll">
                         <div class="flag">🇰🇷</div>
                         <h3>Корея</h3>
                         <p>Цена/качество. Современные технологии.</p>
-                        <div class="brands">Бренды: Hyundai, Kia, Genesis</div>
+                        <p class="brands">Бренды: Hyundai, Kia, Genesis</p>
                     </div>
-                    <div class="country-card animated">
+                    <div class="country-card animate-on-scroll">
                         <div class="flag">🇨🇳</div>
                         <h3>Китай</h3>
                         <p>Технологии, комплектации, доступные цены.</p>
-                        <div class="brands">Бренды: Geely, Chery, Haval, Zeekr, BYD</div>
-                    </div>
-                    <div class="country-card animated">
-                        <div class="flag">🇺🇸</div>
-                        <h3>США</h3>
-                        <p>Аукционы, CarFax, огромный выбор.</p>
-                        <div class="brands">Бренды: Ford, Cadillac, Jeep, Tesla</div>
-                    </div>
-                    <div class="country-card animated">
-                        <div class="flag">🇦🇪</div>
-                        <h3>ОАЭ</h3>
-                        <p>Без зимней эксплуатации. Идеальный кузов.</p>
-                        <div class="brands">Бренды: Toyota, Lexus, Porsche, Land Rover</div>
+                        <p class="brands">Бренды: Geely, Chery, Haval, Zeekr, BYD, VW</p>
                     </div>
                 </div>
             </div>
@@ -891,85 +712,73 @@
 
         <section id="cars-in-stock">
             <div class="container">
-                <h2 class="animated">Автомобили в продаже</h2>
-                <div class="grid-3-cols">
-                    <div class="car-card animated">
+                <h2>Автомобили в продаже</h2>
+                <div class="cars-grid">
+                    <div class="car-card animate-on-scroll">
                         <img src="https://picsum.photos/seed/bmwx5/400/240" alt="BMW X5 (G05)">
-                        <div class="car-card-content">
-                            <h3>BMW X5 (G05)</h3>
-                            <div class="price">6 890 000 ₽</div>
-                            <ul>
-                                <li>Год: 2022</li>
-                                <li>Двигатель: 3.0 дизель</li>
-                                <li>Привод: 4WD</li>
-                            </ul>
-                            <a href="#contact-form" class="btn">Узнать подробнее</a>
-                        </div>
+                        <h3>BMW X5 (G05)</h3>
+                        <p class="price">6 890 000 ₽</p>
+                        <ul>
+                            <li>Год: 2022</li>
+                            <li>Двигатель: 3.0 дизель</li>
+                            <li>Привод: 4WD</li>
+                        </ul>
+                        <a href="#contact-form" class="btn">Узнать подробнее</a>
                     </div>
-                    <div class="car-card animated">
+                    <div class="car-card animate-on-scroll">
                         <img src="https://picsum.photos/seed/mercgle/400/240" alt="Mercedes GLE 300d">
-                        <div class="car-card-content">
-                            <h3>Mercedes GLE 300d</h3>
-                            <div class="price">7 240 000 ₽</div>
-                            <ul>
-                                <li>Год: 2023</li>
-                                <li>Двигатель: 2.0 дизель</li>
-                                <li>Привод: 4WD</li>
-                            </ul>
-                            <a href="#contact-form" class="btn">Узнать подробнее</a>
-                        </div>
+                        <h3>Mercedes GLE 300d</h3>
+                        <p class="price">7 240 000 ₽</p>
+                        <ul>
+                            <li>Год: 2023</li>
+                            <li>Двигатель: 2.0 дизель</li>
+                            <li>Привод: 4WD</li>
+                        </ul>
+                        <a href="#contact-form" class="btn">Узнать подробнее</a>
                     </div>
-                    <div class="car-card animated">
+                    <div class="car-card animate-on-scroll">
                         <img src="https://picsum.photos/seed/toyotalc/400/240" alt="Toyota Land Cruiser 300">
-                        <div class="car-card-content">
-                            <h3>Toyota Land Cruiser 300</h3>
-                            <div class="price">11 500 000 ₽</div>
-                            <ul>
-                                <li>Год: 2024</li>
-                                <li>Двигатель: 3.5 бензин</li>
-                                <li>Привод: 4WD</li>
-                            </ul>
-                            <a href="#contact-form" class="btn">Узнать подробнее</a>
-                        </div>
+                        <h3>Toyota Land Cruiser 300</h3>
+                        <p class="price">11 500 000 ₽</p>
+                        <ul>
+                            <li>Год: 2024</li>
+                            <li>Двигатель: 3.5 бензин</li>
+                            <li>Привод: 4WD</li>
+                        </ul>
+                        <a href="#contact-form" class="btn">Узнать подробнее</a>
                     </div>
-                    <div class="car-card animated">
+                    <div class="car-card animate-on-scroll">
                         <img src="https://picsum.photos/seed/porsheca/400/240" alt="Porsche Cayenne S">
-                        <div class="car-card-content">
-                            <h3>Porsche Cayenne S</h3>
-                            <div class="price">13 200 000 ₽</div>
-                            <ul>
-                                <li>Год: 2023</li>
-                                <li>Двигатель: 4.0 V8</li>
-                                <li>Привод: 4WD</li>
-                            </ul>
-                            <a href="#contact-form" class="btn">Узнать подробнее</a>
-                        </div>
+                        <h3>Porsche Cayenne S</h3>
+                        <p class="price">13 200 000 ₽</p>
+                        <ul>
+                            <li>Год: 2023</li>
+                            <li>Двигатель: 4.0 V8</li>
+                            <li>Привод: 4WD</li>
+                        </ul>
+                        <a href="#contact-form" class="btn">Узнать подробнее</a>
                     </div>
-                    <div class="car-card animated">
+                    <div class="car-card animate-on-scroll">
                         <img src="https://picsum.photos/seed/lexusrx/400/240" alt="Lexus RX 350h">
-                        <div class="car-card-content">
-                            <h3>Lexus RX 350h</h3>
-                            <div class="price">6 450 000 ₽</div>
-                            <ul>
-                                <li>Год: 2024</li>
-                                <li>Двигатель: 2.5 гибрид</li>
-                                <li>Привод: 4WD</li>
-                            </ul>
-                            <a href="#contact-form" class="btn">Узнать подробнее</a>
-                        </div>
+                        <h3>Lexus RX 350h</h3>
+                        <p class="price">6 450 000 ₽</p>
+                        <ul>
+                            <li>Год: 2024</li>
+                            <li>Двигатель: 2.5 гибрид</li>
+                            <li>Привод: 4WD</li>
+                        </ul>
+                        <a href="#contact-form" class="btn">Узнать подробнее</a>
                     </div>
-                    <div class="car-card animated">
+                    <div class="car-card animate-on-scroll">
                         <img src="https://picsum.photos/seed/zeekr001/400/240" alt="Zeekr 001">
-                        <div class="car-card-content">
-                            <h3>Zeekr 001</h3>
-                            <div class="price">5 990 000 ₽</div>
-                            <ul>
-                                <li>Год: 2024</li>
-                                <li>Двигатель: электро</li>
-                                <li>Привод: RWD</li>
-                            </ul>
-                            <a href="#contact-form" class="btn">Узнать подробнее</a>
-                        </div>
+                        <h3>Zeekr 001</h3>
+                        <p class="price">5 990 000 ₽</p>
+                        <ul>
+                            <li>Год: 2024</li>
+                            <li>Двигатель: электро</li>
+                            <li>Привод: RWD</li>
+                        </ul>
+                        <a href="#contact-form" class="btn">Узнать подробнее</a>
                     </div>
                 </div>
             </div>
@@ -977,78 +786,74 @@
 
         <section id="calculator">
             <div class="container">
-                <h2 class="animated">Калькулятор растаможки</h2>
-                <div class="calculator animated">
-                    <h3>Рассчитайте стоимость доставки и растаможки</h3>
-                    <label for="car-price">Стоимость авто (в валюте страны, €/$):</label>
-                    <input type="number" id="car-price" placeholder="Например, 30000" min="1" required>
+                <h2>Калькулятор растаможки</h2>
+                <div class="calculator animate-on-scroll">
+                    <h3>Рассчитайте стоимость растаможки вашего авто</h3>
+                    <form id="customs-calculator-form">
+                        <label for="car-price">Стоимость авто (USD):</label>
+                        <input type="number" id="car-price" name="car-price" min="1000" value="30000" required>
 
-                    <label for="currency">Валюта:</label>
-                    <select id="currency">
-                        <option value="EUR">Евро (€)</option>
-                        <option value="USD">Доллар ($)</option>
-                    </select>
+                        <label for="engine-volume">Объем двигателя (см³):</label>
+                        <input type="number" id="engine-volume" name="engine-volume" min="500" value="2000" required>
 
-                    <label for="engine-volume">Объем двигателя (куб. см):</label>
-                    <input type="number" id="engine-volume" placeholder="Например, 2000" min="100" required>
+                        <label for="car-age">Возраст авто:</label>
+                        <select id="car-age" name="car-age" required>
+                            <option value="new">До 3 лет</option>
+                            <option value="medium">От 3 до 5 лет</option>
+                            <option value="old">Более 5 лет</option>
+                        </select>
 
-                    <label for="car-age">Возраст авто (лет):</label>
-                    <select id="car-age">
-                        <option value="0-3">До 3 лет</option>
-                        <option value="3-5">От 3 до 5 лет</option>
-                        <option value="5+">Более 5 лет</option>
-                    </select>
-
-                    <button id="calculate-btn">Рассчитать</button>
+                        <button type="submit" class="btn">Рассчитать</button>
+                    </form>
                     <div id="result"></div>
                 </div>
             </div>
         </section>
 
-        <section class="video-block">
+        <section id="video">
             <div class="container">
-                <h2 class="animated">О нашей компании</h2>
-                <div class="video-wrapper animated">
-                    <iframe src="https://rutube.ru/play/embed/e88cf480cf24ee978e656600e807dd75/" frameborder="0" allow="clipboard-write; autoplay" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <h2>О нас в видео</h2>
+                <div class="video-wrapper animate-on-scroll">
+                    <iframe src="https://rutube.ru/play/embed/e88cf480cf24ee978e656600e807dd75/" frameborder="0" allow="clipboard-write; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials">
+        <section id="reviews">
             <div class="container">
-                <h2 class="animated">Отзывы клиентов</h2>
-                <div class="testimonials-slider">
-                    <div class="testimonial-card animated">
-                        <div class="rating">★★★★★</div>
-                        <p>"Второй авто привожу. Всё чётко, без скрытых платежей. Рекомендую!"</p>
-                        <div class="testimonial-author">
+                <h2>Отзывы клиентов</h2>
+                <div class="reviews-grid">
+                    <div class="review-card animate-on-scroll">
+                        <div class="user-info">
                             <img src="https://picsum.photos/seed/user1/100/100" alt="Алексей К.">
-                            <span>Алексей К.</span>
+                            <span class="name">Алексей К.</span>
                         </div>
-                    </div>
-                    <div class="testimonial-card animated">
                         <div class="rating">★★★★★</div>
-                        <p>"Подобрали Lexus из США за 2 недели. Доставили за 38 дней. Экономия 1,5 млн!"</p>
-                        <div class="testimonial-author">
+                        <p>Второй авто привожу. Всё чётко, без скрытых платежей. Рекомендую!</p>
+                    </div>
+                    <div class="review-card animate-on-scroll">
+                        <div class="user-info">
                             <img src="https://picsum.photos/seed/user2/100/100" alt="Екатерина М.">
-                            <span>Екатерина М.</span>
+                            <span class="name">Екатерина М.</span>
                         </div>
-                    </div>
-                    <div class="testimonial-card animated">
                         <div class="rating">★★★★★</div>
-                        <p>"Porsche Cayenne из Германии. Гарантия 12 мес. Машина в идеале!"</p>
-                        <div class="testimonial-author">
+                        <p>Подобрали Lexus из США за 2 недели. Доставили за 38 дней. Экономия 1,5 млн!</p>
+                    </div>
+                    <div class="review-card animate-on-scroll">
+                        <div class="user-info">
                             <img src="https://picsum.photos/seed/user3/100/100" alt="Дмитрий С.">
-                            <span>Дмитрий С.</span>
+                            <span class="name">Дмитрий С.</span>
                         </div>
-                    </div>
-                    <div class="testimonial-card animated">
                         <div class="rating">★★★★★</div>
-                        <p>"Отличный сервис! Помогли с кредитом. Zeekr приехал быстрее срока!"</p>
-                        <div class="testimonial-author">
+                        <p>Porsche Cayenne из Германии. Гарантия 12 мес. Машина в идеале!</p>
+                    </div>
+                    <div class="review-card animate-on-scroll">
+                        <div class="user-info">
                             <img src="https://picsum.photos/seed/user4/100/100" alt="Анна В.">
-                            <span>Анна В.</span>
+                            <span class="name">Анна В.</span>
                         </div>
+                        <div class="rating">★★★★★</div>
+                        <p>Отличный сервис! Помогли с кредитом. Zeekr приехал быстрее срока!</p>
                     </div>
                 </div>
             </div>
@@ -1056,53 +861,59 @@
 
         <section id="faq">
             <div class="container">
-                <h2 class="animated">Часто задаваемые вопросы</h2>
-                <div class="faq-accordion animated">
+                <h2>Часто задаваемые вопросы</h2>
+                <div class="faq-accordion animate-on-scroll">
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Сколько стоит привоз авто? <span class="icon">▼</span>
+                            Сколько стоит привоз авто?
+                            <span class="icon">▼</span>
                         </div>
-                        <div class="accordion-content">
+                        <div class="accordion-body">
                             <p>От 350 000 ₽ за логистику и растаможку. Точный расчёт — по заявке.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Какие сроки доставки? <span class="icon">▼</span>
+                            Какие сроки доставки?
+                            <span class="icon">▼</span>
                         </div>
-                        <div class="accordion-content">
+                        <div class="accordion-body">
                             <p>30–45 дней. Германия/Корея/Китай — 4 недели, США/Япония — до 6.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Даёте ли гарантию? <span class="icon">▼</span>
+                            Даёте ли гарантию?
+                            <span class="icon">▼</span>
                         </div>
-                        <div class="accordion-content">
+                        <div class="accordion-body">
                             <p>Да, 6–12 месяцев. Сервисная книга и полный отчёт.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Можно в кредит? <span class="icon">▼</span>
+                            Можно в кредит?
+                            <span class="icon">▼</span>
                         </div>
-                        <div class="accordion-content">
+                        <div class="accordion-body">
                             <p>Да, от 3% годовых. Работаем с 10+ банками.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Как проверяется авто? <span class="icon">▼</span>
+                            Как проверяется авто?
+                            <span class="icon">▼</span>
                         </div>
-                        <div class="accordion-content">
+                        <div class="accordion-body">
                             <p>201 параметр: кузов, двигатель, история, юрчистота. Фото/видеоотчёт.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Есть Trade-in? <span class="icon">▼</span>
+                            Есть Trade-in?
+                            <span class="icon">▼</span>
                         </div>
-                        <div class="accordion-content">
+                        <div class="accordion-body">
                             <p>Да, принимаем ваш авто по рыночной цене.</p>
                         </div>
                     </div>
@@ -1112,8 +923,8 @@
 
         <section id="contact-form">
             <div class="container">
-                <h2 class="animated">Оставьте заявку</h2>
-                <div class="contact-form animated">
+                <h2>Оставьте заявку</h2>
+                <div class="contact-form animate-on-scroll">
                     <h3>Мы свяжемся с вами в ближайшее время</h3>
                     <form id="main-contact-form">
                         <label for="name">Ваше имя:</label>
@@ -1123,9 +934,9 @@
                         <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
 
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="example@mail.ru">
+                        <input type="email" id="email" name="email" placeholder="email@example.com">
 
-                        <button type="submit">Отправить заявку</button>
+                        <button type="submit" class="btn">Отправить заявку</button>
                     </form>
                 </div>
             </div>
@@ -1134,17 +945,18 @@
 
     <footer>
         <div class="container">
-            <a href="#" class="logo">АвтоИмпорт Про</a>
-            <p>Привозим авто с пробегом из Германии, Японии, Кореи, Китая, США и ОАЭ. С 2018 года. 2000+ клиентов.</p>
-            <p>Телефон: <a href="tel:89170801111">8 (917) 080-11-11</a></p>
-            <p>Email: <a href="mailto:info@autoimport.ru">info@autoimport.ru</a></p>
-            <p>Адрес: Москва, ул. Автомобильная, 15</p>
-            <p>&copy; 2024 АвтоИмпорт Про. Все права защищены.</p>
+            <a href="#" class="logo">АвтоИмпорт АЗИЯ</a>
+            <div class="contact-details">
+                <p>Адрес: Москва, ул. Автомобильная, 15</p>
+                <p>Телефон: <a href="tel:89170801111">8 (917) 080-11-11</a></p>
+                <p>Email: <a href="mailto:info@autoimport.ru">info@autoimport.ru</a></p>
+                <p>&copy; 2024 АвтоИмпорт АЗИЯ. Все права защищены.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll for anchor links
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1154,121 +966,98 @@
             });
         });
 
-        // Intersection Observer for animations
-        const animatedElements = document.querySelectorAll('.animated');
+        // Animate on scroll
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Stop observing once visible
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.2 // Trigger when 20% of the element is visible
-        });
+        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
 
-        animatedElements.forEach(element => {
+        animateElements.forEach(element => {
             observer.observe(element);
         });
 
-        // Calculator logic
-        document.getElementById('calculate-btn').addEventListener('click', function() {
-            const carPrice = parseFloat(document.getElementById('car-price').value);
-            const currency = document.getElementById('currency').value;
-            const engineVolume = parseFloat(document.getElementById('engine-volume').value);
-            const carAge = document.getElementById('car-age').value;
-            const resultDiv = document.getElementById('result');
-
-            if (isNaN(carPrice) || isNaN(engineVolume) || carPrice <= 0 || engineVolume <= 0) {
-                resultDiv.textContent = 'Пожалуйста, введите корректные значения.';
-                return;
-            }
-
-            let customsDuty = 0; // Таможенная пошлина
-            let utilizationFee = 0; // Утилизационный сбор (упрощенно)
-            let exciseTax = 0; // Акциз (упрощенно)
-            let basePriceRub = carPrice;
-
-            // Примерный курс валют (для демонстрации)
-            const exchangeRates = {
-                'EUR': 95, // 1 EUR = 95 RUB
-                'USD': 90  // 1 USD = 90 RUB
-            };
-
-            if (currency === 'EUR') {
-                basePriceRub = carPrice * exchangeRates['EUR'];
-            } else if (currency === 'USD') {
-                basePriceRub = carPrice * exchangeRates['USD'];
-            }
-
-            // Расчет таможенной пошлины (упрощенно, для примера)
-            if (carAge === '0-3') {
-                if (basePriceRub <= 8500 * exchangeRates['EUR']) { // до 8500 евро
-                    customsDuty = Math.max(0.54 * carPrice, 2.5 * engineVolume);
-                } else { // свыше 8500 евро
-                    customsDuty = Math.max(0.48 * carPrice, 3.5 * engineVolume);
-                }
-            } else if (carAge === '3-5') {
-                if (engineVolume <= 1000) customsDuty = 1.5 * engineVolume;
-                else if (engineVolume <= 1500) customsDuty = 1.7 * engineVolume;
-                else if (engineVolume <= 1800) customsDuty = 2.5 * engineVolume;
-                else if (engineVolume <= 2300) customsDuty = 2.7 * engineVolume;
-                else if (engineVolume <= 3000) customsDuty = 3.0 * engineVolume;
-                else customsDuty = 3.6 * engineVolume;
-            } else if (carAge === '5+') {
-                if (engineVolume <= 1000) customsDuty = 3.0 * engineVolume;
-                else if (engineVolume <= 1500) customsDuty = 3.2 * engineVolume;
-                else if (engineVolume <= 1800) customsDuty = 3.5 * engineVolume;
-                else if (engineVolume <= 2300) customsDuty = 4.8 * engineVolume;
-                else if (engineVolume <= 3000) customsDuty = 5.0 * engineVolume;
-                else customsDuty = 5.7 * engineVolume;
-            }
-            customsDuty *= exchangeRates['EUR']; // Переводим пошлину в рубли
-
-            // Утилизационный сбор (для физ. лиц, упрощенно)
-            if (carAge === '0-3') {
-                utilizationFee = 3400; // Базовая ставка
-            } else {
-                utilizationFee = 5200; // Базовая ставка
-            }
-
-            // Акциз (очень упрощенно, для примера)
-            if (engineVolume > 2000) {
-                exciseTax = (engineVolume / 1000) * 50000; // Примерная ставка
-            }
-
-            const totalCost = basePriceRub + customsDuty + utilizationFee + exciseTax + 350000; // + 350 000 ₽ за логистику и растаможку
-
-            resultDiv.innerHTML = `
-                <p>Примерная стоимость авто в РФ: <strong>${(basePriceRub / 1000000).toFixed(2)} млн ₽</strong></p>
-                <p>Примерная таможенная пошлина: <strong>${(customsDuty / 1000).toFixed(1)} тыс. ₽</strong></p>
-                <p>Утилизационный сбор: <strong>${utilizationFee} ₽</strong></p>
-                <p>Акциз: <strong>${exciseTax} ₽</strong></p>
-                <p>Логистика и оформление: <strong>350 000 ₽</strong></p>
-                <p>Общая ориентировочная стоимость: <strong>${(totalCost / 1000000).toFixed(2)} млн ₽</strong></p>
-            `;
-        });
-
         // FAQ Accordion
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-        accordionHeaders.forEach(header => {
+        document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
-                const item = header.parentElement;
-                const content = header.nextElementSibling;
-
+                const item = header.closest('.accordion-item');
                 item.classList.toggle('active');
-
-                if (item.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                } else {
-                    content.style.maxHeight = '0';
-                }
             });
         });
 
-        // Form submission handler
+        // Customs Calculator
+        document.getElementById('customs-calculator-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const carPriceUSD = parseFloat(document.getElementById('car-price').value);
+            const engineVolume = parseFloat(document.getElementById('engine-volume').value);
+            const carAge = document.getElementById('car-age').value;
+            const usdToRubRate = 90; // Примерный курс USD к RUB
+
+            let customsDuty = 0; // Таможенная пошлина
+            let recyclingFee = 0; // Утилизационный сбор
+            let exciseTax = 0; // Акциз
+            let vat = 0; // НДС (20% от суммы пошлины, акциза и стоимости авто)
+
+            // Расчет таможенной пошлины (упрощенно, для примера)
+            if (carAge === 'new') { // До 3 лет
+                if (carPriceUSD <= 8500) customsDuty = carPriceUSD * 0.54;
+                else if (carPriceUSD <= 16700) customsDuty = carPriceUSD * 0.48;
+                else if (carPriceUSD <= 42300) customsDuty = carPriceUSD * 0.48;
+                else if (carPriceUSD <= 84500) customsDuty = carPriceUSD * 0.48;
+                else if (carPriceUSD <= 169000) customsDuty = carPriceUSD * 0.48;
+                else customsDuty = carPriceUSD * 0.48; // Упрощено, ставки сложнее
+            } else if (carAge === 'medium') { // От 3 до 5 лет
+                if (engineVolume <= 1000) customsDuty = engineVolume * 1.5;
+                else if (engineVolume <= 1500) customsDuty = engineVolume * 1.7;
+                else if (engineVolume <= 1800) customsDuty = engineVolume * 2.5;
+                else if (engineVolume <= 2300) customsDuty = engineVolume * 2.7;
+                else if (engineVolume <= 3000) customsDuty = engineVolume * 3.0;
+                else customsDuty = engineVolume * 3.6;
+            } else { // Более 5 лет
+                if (engineVolume <= 1000) customsDuty = engineVolume * 3.0;
+                else if (engineVolume <= 1500) customsDuty = engineVolume * 3.2;
+                else if (engineVolume <= 1800) customsDuty = engineVolume * 3.5;
+                else if (engineVolume <= 2300) customsDuty = engineVolume * 4.8;
+                else if (engineVolume <= 3000) customsDuty = engineVolume * 5.0;
+                else customsDuty = engineVolume * 5.7;
+            }
+
+            // Утилизационный сбор (для легковых авто, упрощенно)
+            if (carAge === 'new') {
+                recyclingFee = 3400; // Базовая ставка для физ. лиц
+            } else {
+                recyclingFee = 5200; // Базовая ставка для физ. лиц
+            }
+
+            // Акциз (для примера, упрощенно)
+            if (engineVolume <= 90) exciseTax = 0;
+            else if (engineVolume <= 150) exciseTax = engineVolume * 49;
+            else if (engineVolume <= 200) exciseTax = engineVolume * 472;
+            else if (engineVolume <= 250) exciseTax = engineVolume * 464;
+            else exciseTax = engineVolume * 1210; // Ставки сильно зависят от мощности
+
+            // НДС (20% от суммы пошлины, акциза и стоимости авто в рублях)
+            const carPriceRUB = carPriceUSD * usdToRubRate;
+            vat = (customsDuty + exciseTax + carPriceRUB) * 0.20;
+
+
+            const totalCustomsCost = (customsDuty * usdToRubRate) + recyclingFee + exciseTax + vat;
+
+            document.getElementById('result').innerHTML = `
+                Примерная стоимость растаможки: <strong>${totalCustomsCost.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 })}</strong>
+                <br>
+                <small>Расчет является ориентировочным. Для точного расчета оставьте заявку.</small>
+            `;
+        });
+
+
+        // Main Contact Form Submission
         const form = document.getElementById('main-contact-form');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
